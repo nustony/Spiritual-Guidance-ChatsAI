@@ -1,7 +1,7 @@
-import React from 'react'
+import { ROLE } from "./Constants"
 
 export interface IMessage {
-	role: "user" | "assistant" | 'loading',
+	role: ROLE.user | ROLE.assistant | ROLE.loading,
 	content: string
 }
 
