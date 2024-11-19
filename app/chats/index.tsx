@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { FlatList, SafeAreaView, View, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Image, Text, ActivityIndicator } from 'react-native';
-import { IMessage } from '@/constants/Interface'
-import { images } from '@/constants/Images';
+import { IMessage } from '@/constants/Interfaces'
 import { String } from '@/constants/Strings';
 import { styles } from './styles';
 import useHooks from './useHooks';
 import { ROLE } from '@/constants/Constants';
 import { Colors } from '@/constants/Colors';
+import { images } from '@/constants/Images';
 
 const Chats = () => {
 

@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { String } from '@/constants/Strings';
-import { IAIResponse, IMessage } from '../../constants/interface';
+import { IAIResponse, IMessage } from '../../constants/Interfaces';
 import { ROLE } from '@/constants/Constants';
-import { APIs } from '@/constants/API';
+import { APIs } from '@/constants/APIs';
 import { TOKEN_KEY } from '@env';
 
 const useHooks = () => {
