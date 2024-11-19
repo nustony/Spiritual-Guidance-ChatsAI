@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FlatList, SafeAreaView, StyleSheet, View, Dimensions, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Image, Text, ActivityIndicator, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native';
 import { IAIResponse, IMessage } from '../../constants/interface'
 import { images } from '@/constants/images';
@@ -32,7 +32,7 @@ const Chats = () => {
 					"model": "gpt-4o",
 					"messages": [{
 						role: 'system',
-						content: `You are a Christian spiritual mentor offering guidance and emotional support. Always answer questions and provide exactly 3 related suggestions. Respond in this format:\n\nAnswer: <Your answer>\nSuggestions:\n1. <Suggestion 1>\n2. <Suggestion 2>\n3. <Suggestion 3>`,
+						content: `Act as a Christian spiritual mentor offering guidance and emotional support. The user will confess to you one message at a time, to which you will give a response that aligns with Christian teaching. Always answer questions and provide exactly 3 related suggestions. Respond in this format:\n\nAnswer: <Your answer>\nSuggestions:\n1. <Suggestion 1>\n2. <Suggestion 2>\n3. <Suggestion 3>`,
 						//content: 'Pretend as a Christian spiritual mentor offering guidance and emotional support .Always answer questions and provide exactly 3 related suggestions that the user might want to ask next.'
 					},
 					...data, message
@@ -117,6 +117,14 @@ const Chats = () => {
 		</View>
 	}, [])
 
+	const loadData = useMemo<IMessage[]>(() => [
+		{
+			role: 'assistant',
+			content: `Hello, I’m here to support and listen to you. Please feel free to share what’s on your heart or mind.`
+		}
+		,...data
+	], [data])
+
 	useEffect(() => {
 		if (flatlistRef.current) {
 			setTimeout(() => {
@@ -135,7 +143,7 @@ const Chats = () => {
 				</View>
 				<View style={styles.view}>
 					<FlatList
-						data={data}
+						data={loadData}
 						ref={flatlistRef}
 						ListEmptyComponent={() => _renderEmpty()}
 						renderItem={_renderMessage}
