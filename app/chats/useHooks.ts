@@ -50,6 +50,7 @@ const useHooks = () => {
 						.split("\n")
 						.filter((line) => line.trim())
 						.map((s) => s.replace(/^\d+\.\s*/, "").trim())
+						.map((s) => s.replaceAll(`"`,"").trim())
 					: [];
 
 				const botMessage: IMessage = {
