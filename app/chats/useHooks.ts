@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { API_TOKEN } from '@/constants/Key';
 import axios from 'axios';
 import { String } from '@/constants/Strings';
 import { IAIResponse, IMessage } from '../../constants/interface';
 import { ROLE } from '@/constants/Constants';
 import { APIs } from '@/constants/API';
+import { TOKEN_KEY } from '@env';
 
 const useHooks = () => {
 	const [data, setData] = useState<IMessage[]>([])
@@ -34,7 +34,7 @@ const useHooks = () => {
 					],
 				}, {
 				headers: {
-					Authorization: `Bearer ${API_TOKEN}`,
+					Authorization: `Bearer ${TOKEN_KEY}`,
 					"Content-Type": "application/json"
 				}
 			}
