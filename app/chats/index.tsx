@@ -6,7 +6,7 @@ import { styles } from './styles';
 import useHooks from './useHooks';
 import { ROLE } from '@/constants/Constants';
 import { Colors } from '@/constants/Colors';
-import { images } from '@/constants/Images';
+import { images } from '@/constants/images';
 
 const Chats = () => {
 
