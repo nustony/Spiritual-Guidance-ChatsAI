@@ -1,7 +1,8 @@
+import {  ChatCompletionMessageParam } from "openai/resources"
 import { ROLE } from "./Constants"
 
-export interface IMessage {
-	role: ROLE.user | ROLE.assistant | ROLE.loading,
+export interface IMessage  {
+	role: ROLE.user | ROLE.assistant | ROLE.loading ,
 	content: string
 }
 

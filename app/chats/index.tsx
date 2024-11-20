@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { FlatList, SafeAreaView, View, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Image, Text, ActivityIndicator } from 'react-native';
 import { IMessage } from '@/constants/Interfaces'
 import { StringsText } from '@/constants/Strings';
-import { styles } from './styles';
+import styles from './styles';
 import useHooks from './useHooks';
 import { ROLE } from '@/constants/Constants';
 import { Colors } from '@/constants/Colors';
@@ -46,7 +46,7 @@ const Chats = () => {
 					))}
 				</View>
 				<View style={styles.containerInput}>
-					<TextInput value={input} style={styles.input} multiline placeholder='Input....' onChangeText={setInput} />
+					<TextInput value={input} style={styles.input} multiline placeholder='Input....' onChangeText={setInput} placeholderTextColor={Colors.grey} />
 					{input.trim() != "" && <TouchableOpacity disabled={input.trim() == ''} onPress={onPressSend} style={styles.button}>
 						<Image source={images.send} style={styles.iconSend} />
 					</TouchableOpacity>}
@@ -60,13 +60,13 @@ const Chats = () => {
 			role: ROLE.assistant,
 			content: StringsText.firstMessage
 		}
-		,...data
+		, ...data
 	], [data])
 
 	useEffect(() => {
 		if (flatlistRef.current) {
 			setTimeout(() => {
-				flatlistRef.current?.scrollToEnd({ animated: true})
+				flatlistRef.current?.scrollToEnd({ animated: true })
 			}, 200);
 		}
 	}, [data])
@@ -87,7 +87,7 @@ const Chats = () => {
 						renderItem={_renderMessage}
 						style={styles.flatlist}
 						contentContainerStyle={styles.containerFlatlist}
-						keyExtractor={(item: IMessage, index: number) => `${index}`}
+						keyExtractor={(item: IMessage, index: number) => `${ index}`}
 						ListFooterComponent={_renderBottomView}
 					/>
 				</View>

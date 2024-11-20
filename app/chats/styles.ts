@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 
 const { width } = Dimensions.get('window')
 
-export const styles = StyleSheet.create({
+ const styles = StyleSheet.create({
 	safeView: {
 		flex: 1,
 		backgroundColor: Colors.main
@@ -48,7 +48,9 @@ export const styles = StyleSheet.create({
 		color: Colors.black,
 		textAlign: 'left',
 		textAlignVertical: 'center',
-		paddingTop: Platform.OS == 'ios' ? 16 : 4
+		paddingTop: Platform.OS == 'ios' ? 16 : 4,
+		
+		
 	},
 	iconSend: {
 		width: 20,
@@ -140,3 +142,5 @@ export const styles = StyleSheet.create({
 		height: 120
 	}
 })
+
+export default styles;
