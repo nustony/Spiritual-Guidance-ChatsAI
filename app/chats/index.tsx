@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useMemo, useRef } from 'react';
 import { FlatList, SafeAreaView, View, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, Image, Text, ActivityIndicator } from 'react-native';
 import { IMessage } from '@/constants/Interfaces'
-import { String } from '@/constants/Strings';
+import { StringsText } from '@/constants/Strings';
 import { styles } from './styles';
 import useHooks from './useHooks';
 import { ROLE } from '@/constants/Constants';
 import { Colors } from '@/constants/Colors';
-import { images } from '@/constants/images';
+import { images } from '@/constants/Images';
 
 const Chats = () => {
 
@@ -58,7 +58,7 @@ const Chats = () => {
 	const loadData = useMemo<IMessage[]>(() => [
 		{
 			role: ROLE.assistant,
-			content: String.firstMessage
+			content: StringsText.firstMessage
 		}
 		,...data
 	], [data])
@@ -74,10 +74,11 @@ const Chats = () => {
 	return (<SafeAreaView style={styles.safeView}>
 		<KeyboardAvoidingView
 			behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+			keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
 			style={styles.container}>
 			<View style={styles.view}>
 				<View style={styles.header}>
-					<Text style={styles.title}>{String.appName}</Text>
+					<Text style={styles.title}>{StringsText.appName}</Text>
 				</View>
 				<View style={styles.view}>
 					<FlatList

@@ -20,3 +20,8 @@ export interface IChoice {
 export interface IResponseMessage {
 	content: string
 }
+
+export interface IResponse {
+	answer: string,
+	suggestions: string[]
+}
